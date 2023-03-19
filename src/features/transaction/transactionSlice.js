@@ -14,7 +14,7 @@ export const fetchTransactions = createAsyncThunk("transaction/fetchTransactions
     return transaction;
 })
 
-export const createTransactions = createAsyncThunk("transaction/createTransactions", async (data) => {
+export const createTransaction = createAsyncThunk("transaction/createTransactions", async (data) => {
     const transaction = await addTransaction(data)
 
     return transaction;
@@ -55,16 +55,16 @@ const transactionSlice = createSlice({
                 state.error = action.error?.message
             })
             // createTransactions
-            .addCase(createTransactions.pending, (state) => {
+            .addCase(createTransaction.pending, (state) => {
                 state.isError = false
                 state.isLoading = true
             })
-            .addCase(createTransactions.fulfilled, (state, action) => {
+            .addCase(createTransaction.fulfilled, (state, action) => {
                 state.isError = false
                 state.isLoading = false
                 state.transactions.push(action.payload)
             })
-            .addCase(createTransactions.rejected, (state, action) => {
+            .addCase(createTransaction.rejected, (state, action) => {
                 state.isError = true
                 state.isLoading = false
                 state.error = action.error?.message
