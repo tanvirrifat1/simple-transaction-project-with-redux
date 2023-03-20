@@ -1,22 +1,22 @@
 {
   "transactions": [
     {
-      "id": 1,
-      "name": "Salary from Google",
-      "type": "income",
-      "amount": 1000000
-    },
-    {
-      "id": 2,
-      "name": "Family Expenses",
-      "type": "expense",
-      "amount": 200000
-    },
-    {
       "name": "Tanvir Rifat",
       "type": "income",
-      "amount": 561561,
-      "id": 5
+      "amount": 1151123123,
+      "id": 1
+    },
+    {
+      "name": "Tomas",
+      "type": "income",
+      "amount": 656,
+      "id": 2
+    },
+    {
+      "name": "faddf",
+      "type": "expense",
+      "amount": 656,
+      "id": 3
     }
   ]
 }

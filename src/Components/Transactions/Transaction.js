@@ -2,12 +2,13 @@ import React from 'react'
 import editImage from '../../asstes/images/edit.svg'
 import deleteImage from '../../asstes/images/delete.svg'
 
-export default function Transaction() {
+export default function Transaction({ transaction }) {
+    const { name, type, amount } = transaction || {}
     return (
-        <div><li className="transaction income">
-            <p>Earned this month</p>
+        <div><li className={`transaction ${type}`}>
+            <p>{name}</p>
             <div className="right">
-                <p>৳ 100</p>
+                <p>৳ {amount}</p>
                 <button className="link">
                     <img alt='edit'
                         className="icon"

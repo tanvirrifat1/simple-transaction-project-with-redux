@@ -13,6 +13,10 @@
     min-height: 100vh;
 }
 
+.error{
+    color: red;
+}
+
 .header,
 .footer {
     padding: 20px;
@@ -175,7 +179,7 @@ label {
 
 .second_heading {
     margin: 20px 0;
-    text-align: left;
+    text-align: center;
 }
 
 .conatiner_of_list_of_transactions ul {
@@ -211,7 +215,7 @@ label {
         max-height: 100px;
         overflow-y: auto;
     }
-
+    
     .transaction {
         width: 90%;
         margin: 10px auto;

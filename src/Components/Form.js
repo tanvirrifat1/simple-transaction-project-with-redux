@@ -15,7 +15,13 @@ export default function Form() {
     const handleCreate = (e) => {
         e.preventDefault()
         dispatch(createTransaction({ name, type, amount: Number(amount) }))
-        toast.success("successfully Done", { autoClose: 500 })
+
+        if (dispatch) {
+            toast.success("successfully Done", { autoClose: 500 })
+        } else {
+            toast.error("something wrong", { autoClose: 500 })
+        }
+
     }
 
     return (

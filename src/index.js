@@ -5,7 +5,7 @@ import App from "./App";
 import { store } from "./app/store";
 import reportWebVitals from "./reportWebVitals";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const container = document.getElementById("root");
@@ -14,8 +14,8 @@ const root = createRoot(container);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <App />
             <ToastContainer />
+            <App />
         </Provider>
     </React.StrictMode>
 );
