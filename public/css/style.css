@@ -13,10 +13,6 @@
     min-height: 100vh;
 }
 
-.error{
-    color: red;
-}
-
 .header,
 .footer {
     padding: 20px;
@@ -89,7 +85,6 @@ input {
     background-color: #4338ca;
     color: white;
     transition: background-color 0.3s ease;
-    margin-top: 10px;
 }
 
 .btn:hover {
@@ -168,7 +163,6 @@ label {
 }
 
 .cancel_edit {
-    display: none;
     margin-top: 10px;
     background-color: #e6425e !important;
 }
@@ -179,12 +173,16 @@ label {
 
 .second_heading {
     margin: 20px 0;
-    text-align: center;
+    text-align: left;
 }
 
 .conatiner_of_list_of_transactions ul {
     max-height: 500px;
     overflow-y: auto;
+}
+
+.error {
+    color: red;
 }
 
 @media (max-width: 450px) {
@@ -215,7 +213,7 @@ label {
         max-height: 100px;
         overflow-y: auto;
     }
-    
+
     .transaction {
         width: 90%;
         margin: 10px auto;

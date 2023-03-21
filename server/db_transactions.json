@@ -17,6 +17,24 @@
       "type": "expense",
       "amount": 656,
       "id": 3
+    },
+    {
+      "name": "Tomas",
+      "type": "income",
+      "amount": 25487,
+      "id": 4
+    },
+    {
+      "name": "tom crus",
+      "type": "income",
+      "amount": 1565,
+      "id": 5
+    },
+    {
+      "name": "faddf",
+      "type": "expense",
+      "amount": 656,
+      "id": 6
     }
   ]
 }
