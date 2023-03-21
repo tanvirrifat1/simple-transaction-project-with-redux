@@ -1,81 +1,86 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { toast } from 'react-toastify'
-import { changeTransactions, createTransaction } from '../features/transaction/transactionSlice'
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeTransaction, createTransaction } from "../features/transaction/transactionSlice";
+// import {
+//     changeTransaction,
+//     createTransaction,
+// } from "../features/transaction/transactionSlice";
 
 export default function Form() {
-    const [name, setName] = useState('')
-    const [type, setType] = useState('')
-    const [amount, setAmount] = useState('')
+    const [name, setName] = useState("");
+    const [type, setType] = useState("");
+    const [amount, setAmount] = useState("");
+    const [editMode, setEditMode] = useState(false);
 
-    const [editMode, setEditMode] = useState(false)
+    const dispatch = useDispatch();
+    const { isLoading, isError } = useSelector((state) => state.transaction);
+    const { editing } = useSelector((state) => state.transaction) || {};
 
-    const dispatch = useDispatch()
-    const { isLoading, isError } = useSelector((state) => state.transaction)
-    const { editing } = useSelector((state) => state.transaction)
-
+    // listen for edit mode active
     useEffect(() => {
-        const { id, name, type, amount } = editing || {}
+        console.log(editing);
+        const { id, name, amount, type } = editing || {};
         if (id) {
-            setEditMode(true)
-            setName(name)
-            setType(type)
-            setAmount(amount)
+            setEditMode(true);
+            setName(name);
+            setType(type);
+            setAmount(amount);
         } else {
-            setEditMode(false)
-            reset()
+            setEditMode(false);
+            reset();
         }
-    }, [editing, type, name, amount])
-
-    const handleCreate = (e) => {
-        e.preventDefault()
-        dispatch(createTransaction({ name, type, amount: Number(amount) }))
-        reset()
-        if (dispatch) {
-            toast.success("successfully Done", { autoClose: 500 })
-        } else {
-            toast.error("something wrong", { autoClose: 500 })
-        }
-
-    }
-
-    const handleUpdate = (e) => {
-        e.preventDefault()
-        dispatch(changeTransactions({
-            id: editing?.id,
-            data: {
-                name: editing?.name,
-                amount: editing?.amount,
-                type: editing?.type
-            }
-        }))
-        reset()
-    }
+    }, [editing]);
 
     const reset = () => {
-        setName("")
-        setType("")
-        setAmount("")
-    }
+        setName("");
+        setType("");
+        setAmount("");
+    };
+
+    const handleCreate = (e) => {
+        e.preventDefault();
+        dispatch(
+            createTransaction({
+                name,
+                type,
+                amount: Number(amount),
+            })
+        );
+        reset();
+    };
+
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        dispatch(
+            changeTransaction({
+                id: editing?.id,
+                data: {
+                    name: name,
+                    amount: amount,
+                    type: type,
+                },
+            })
+        );
+        setEditMode(false);
+        reset();
+    };
 
     const cancelEditMode = () => {
         reset();
         setEditMode(false);
     };
 
-
     return (
         <div className="form">
-            <form onSubmit={editMode ? handleUpdate : handleCreate}>
-                <h3>Add new transaction</h3>
+            <h3>Add new transaction</h3>
 
+            <form onSubmit={editMode ? handleUpdate : handleCreate}>
                 <div className="form-group">
-                    <label >Name</label>
+                    <label>Name</label>
                     <input
                         type="text"
-                        required
                         name="name"
+                        required
                         placeholder="enter title"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -83,17 +88,17 @@ export default function Form() {
                 </div>
 
                 <div className="form-group radio">
-                    <label >Type</label>
+                    <label>Type</label>
                     <div className="radio_group">
                         <input
+                            required
                             type="radio"
                             value="income"
                             name="type"
-                            required
                             checked={type === "income"}
                             onChange={(e) => setType("income")}
                         />
-                        <label >Income</label>
+                        <label>Income</label>
                     </div>
                     <div className="radio_group">
                         <input
@@ -101,11 +106,10 @@ export default function Form() {
                             value="expense"
                             name="type"
                             placeholder="Expense"
-                            required
                             checked={type === "expense"}
                             onChange={(e) => setType("expense")}
                         />
-                        <label >Expense</label>
+                        <label>Expense</label>
                     </div>
                 </div>
 
@@ -113,27 +117,28 @@ export default function Form() {
                     <label>Amount</label>
                     <input
                         type="number"
+                        required
                         placeholder="enter amount"
                         name="amount"
-                        required
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
                     />
                 </div>
 
-                <button disabled={isLoading} type='submit' className="btn">
+                <button disabled={isLoading} className="btn" type="submit">
                     {editMode ? "Update Transaction" : "Add Transaction"}
                 </button>
 
-                {!isLoading && isError && <p className='error'>There was an error</p>}
-
-                {editMode && (
-                    <button className="btn cancel_edit" onClick={cancelEditMode}>
-                        Cancel Edit
-                    </button>
+                {!isLoading && isError && (
+                    <p className="error">There was an error occured</p>
                 )}
             </form>
-        </div>
 
-    )
+            {editMode && (
+                <button className="btn cancel_edit" onClick={cancelEditMode}>
+                    Cancel Edit
+                </button>
+            )}
+        </div>
+    );
 }

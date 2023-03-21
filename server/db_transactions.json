@@ -1,9 +1,9 @@
 {
   "transactions": [
     {
-      "name": "Tanvir Rifat",
-      "type": "income",
+      "name": "Tanvir Rifatss",
       "amount": 1151123123,
+      "type": "income",
       "id": 1
     },
     {
@@ -13,9 +13,9 @@
       "id": 2
     },
     {
-      "name": "faddf",
-      "type": "expense",
+      "name": "fezz",
       "amount": 656,
+      "type": "expense",
       "id": 3
     },
     {
