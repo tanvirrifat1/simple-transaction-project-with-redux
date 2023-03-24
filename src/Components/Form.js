@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { changeTransaction, createTransaction } from "../features/transaction/transactionSlice";
 // import {
 //     changeTransaction,
@@ -16,9 +17,9 @@ export default function Form() {
     const { isLoading, isError } = useSelector((state) => state.transaction);
     const { editing } = useSelector((state) => state.transaction) || {};
 
+
     // listen for edit mode active
     useEffect(() => {
-        console.log(editing);
         const { id, name, amount, type } = editing || {};
         if (id) {
             setEditMode(true);
@@ -46,6 +47,12 @@ export default function Form() {
                 amount: Number(amount),
             })
         );
+        if (dispatch) {
+            toast.success('Successful', { autoClose: 500 })
+        } else {
+            toast.error('something is wrong', { autoClose: 500 })
+        }
+
         reset();
     };
 
@@ -61,6 +68,7 @@ export default function Form() {
                 },
             })
         );
+        toast.success('edit confirmed', { autoClose: 500 })
         setEditMode(false);
         reset();
     };
