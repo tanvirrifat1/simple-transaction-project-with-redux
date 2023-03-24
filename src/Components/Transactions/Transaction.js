@@ -2,14 +2,20 @@ import React from 'react'
 import editImage from '../../asstes/images/edit.svg'
 import deleteImage from '../../asstes/images/delete.svg'
 import { useDispatch } from 'react-redux'
-import { editActive } from '../../features/transaction/transactionSlice'
+import { editActive, removeTransaction } from '../../features/transaction/transactionSlice'
+import { toast } from 'react-toastify'
 
 export default function Transaction({ transaction }) {
-    const { name, type, amount } = transaction || {}
+    const { name, type, amount, id } = transaction || {}
     const dispatch = useDispatch()
 
     const handleEdit = () => {
         dispatch(editActive(transaction))
+    }
+
+    const handleDelete = () => {
+        dispatch(removeTransaction(id))
+        toast.warning('Delete Confirmed', { autoClose: 500 })
     }
 
     return (
@@ -23,7 +29,7 @@ export default function Transaction({ transaction }) {
                         src={editImage}
                     />
                 </button>
-                <button className="link">
+                <button onClick={handleDelete} className="link">
                     <img alt='delete'
                         className="icon"
                         src={deleteImage}

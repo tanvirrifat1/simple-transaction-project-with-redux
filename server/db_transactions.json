@@ -1,76 +1,22 @@
 {
   "transactions": [
     {
-      "name": "Tanvir Rifatss",
-      "amount": "11511231232516",
+      "name": "tom crus",
       "type": "income",
+      "amount": 1202102,
       "id": 1
     },
     {
-      "name": "Tomas",
-      "amount": "65625",
+      "name": "Tanvir Rifat",
       "type": "income",
+      "amount": 524245242,
       "id": 2
     },
     {
-      "name": "fezz",
-      "amount": 656,
+      "name": "tom",
       "type": "expense",
+      "amount": 24524,
       "id": 3
-    },
-    {
-      "name": "Tomas",
-      "type": "income",
-      "amount": 25487,
-      "id": 4
-    },
-    {
-      "name": "tom crus",
-      "type": "income",
-      "amount": 1565,
-      "id": 5
-    },
-    {
-      "name": "faddf",
-      "type": "expense",
-      "amount": 656,
-      "id": 6
-    },
-    {
-      "name": "tom crussssssss",
-      "type": "expense",
-      "amount": 53653543,
-      "id": 7
-    },
-    {
-      "name": "tom crus",
-      "type": "income",
-      "amount": 52412,
-      "id": 8
-    },
-    {
-      "name": "hello",
-      "type": "income",
-      "amount": 1111,
-      "id": 9
-    },
-    {
-      "name": "tom crus",
-      "type": "income",
-      "amount": 142,
-      "id": 10
-    },
-    {
-      "name": "tom crus",
-      "type": "income",
-      "amount": 454,
-      "id": 11
-    },
-    {
-      "name": "tom crus",
-      "type": "income",
-      "amount": 1545,
-      "id": 12
     }
   ]
 }

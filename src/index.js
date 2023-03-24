@@ -14,7 +14,8 @@ const root = createRoot(container);
 root.render(
     <React.StrictMode>
         <Provider store={store}>
-            <ToastContainer />
+            <ToastContainer position="top-center" theme="dark"
+            />
             <App />
         </Provider>
     </React.StrictMode>
