@@ -3,20 +3,14 @@
     {
       "name": "tom crus",
       "type": "income",
-      "amount": 1202102,
+      "amount": 12121,
       "id": 1
     },
     {
       "name": "Tanvir Rifat",
+      "amount": "121121",
       "type": "income",
-      "amount": 524245242,
       "id": 2
-    },
-    {
-      "name": "tom",
-      "type": "expense",
-      "amount": 24524,
-      "id": 3
     }
   ]
 }

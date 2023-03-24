@@ -4,6 +4,7 @@ import deleteImage from '../../asstes/images/delete.svg'
 import { useDispatch } from 'react-redux'
 import { editActive, removeTransaction } from '../../features/transaction/transactionSlice'
 import { toast } from 'react-toastify'
+import numberWithCommas from '../../utils/NumberWithCommas'
 
 export default function Transaction({ transaction }) {
     const { name, type, amount, id } = transaction || {}
@@ -22,7 +23,7 @@ export default function Transaction({ transaction }) {
         <div><li className={`transaction ${type}`}>
             <p>{name}</p>
             <div className="right">
-                <p>৳ {amount}</p>
+                <p>৳ {numberWithCommas(amount)}</p>
                 <button onClick={handleEdit} className="link">
                     <img alt='edit'
                         className="icon"
